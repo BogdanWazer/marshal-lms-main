@@ -21,10 +21,10 @@ export const auth = betterAuth({
     emailOTP({
       async sendVerificationOTP({ email, otp }) {
         await resend.emails.send({
-          from: "MarshalLMS <onboarding@resend.dev>",
+          from: "WazerCode <onboarding@resend.dev>",
           to: [email],
-          subject: "MarshalLMS - Verify your email",
-          html: `<p>Your OTP is <strong>${otp}</strong></p>`,
+          subject: "WazerCode - Підтвердьте свій email",
+          html: `<p>Ваш одноразовий код: <strong>${otp}</strong></p>`,
         });
       },
     }),
