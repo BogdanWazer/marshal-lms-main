@@ -3,6 +3,7 @@
 import * as React from "react";
 import {
   IconCamera,
+  IconChartBar,
   IconDashboard,
   IconFileAi,
   IconFileDescription,
@@ -33,6 +34,11 @@ const data = {
       title: "Dashboard",
       url: "/dashboard",
       icon: IconDashboard,
+    },
+    {
+      title: "Analytics",
+      url: "/admin/analytics",
+      icon: IconChartBar,
     },
   ],
   navClouds: [
