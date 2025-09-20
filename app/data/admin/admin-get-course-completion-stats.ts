@@ -3,6 +3,37 @@ import "server-only";
 import { prisma } from "@/lib/db";
 import { requireAdmin } from "./require-admin";
 
+// Type definitions for the analytics data
+interface LessonProgress {
+  completed: boolean;
+}
+
+interface Lesson {
+  id: string;
+  lessonProgress: LessonProgress[];
+}
+
+interface Chapter {
+  lessons: Lesson[];
+}
+
+interface Course {
+  id: string;
+  title: string;
+  chapter: Chapter[];
+}
+
+interface Enrollment {
+  Course: Course;
+}
+
+interface UserWithEnrollments {
+  id: string;
+  name: string | null;
+  email: string;
+  enrollment: Enrollment[];
+}
+
 export async function adminGetCourseCompletionStats() {
   await requireAdmin();
 
@@ -104,21 +135,21 @@ export async function adminGetUserProgressStats() {
   });
 
   // Calculate progress for each user
-  const userStats = userProgressData.map((user) => {
+  const userStats = userProgressData.map((user: UserWithEnrollments) => {
     const enrolledCourses = user.enrollment.length;
     let totalLessons = 0;
     let completedLessons = 0;
 
-    user.enrollment.forEach((enrollment: any) => {
+    user.enrollment.forEach((enrollment: Enrollment) => {
       const courseLessons = enrollment.Course.chapter.reduce(
-        (acc: number, chapter: any) => acc + chapter.lessons.length,
+        (acc: number, chapter: Chapter) => acc + chapter.lessons.length,
         0
       );
       totalLessons += courseLessons;
 
-      const userCompletedLessons = enrollment.Course.chapter.reduce((acc: number, chapter: any) => {
-        return acc + chapter.lessons.reduce((lessonAcc: number, lesson: any) => {
-          return lessonAcc + lesson.lessonProgress.filter((progress: any) => progress.completed).length;
+      const userCompletedLessons = enrollment.Course.chapter.reduce((acc: number, chapter: Chapter) => {
+        return acc + chapter.lessons.reduce((lessonAcc: number, lesson: Lesson) => {
+          return lessonAcc + lesson.lessonProgress.filter((progress: LessonProgress) => progress.completed).length;
         }, 0);
       }, 0);
       completedLessons += userCompletedLessons;
