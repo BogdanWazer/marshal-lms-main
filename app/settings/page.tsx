@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -148,7 +148,7 @@ export default async function SettingsPage() {
                   Add an extra layer of security to your account
                 </p>
               </div>
-              <Checkbox />
+              <Switch />
             </div>
           </div>
 
@@ -199,7 +199,7 @@ export default async function SettingsPage() {
                   Receive updates about your courses and account
                 </p>
               </div>
-              <Checkbox defaultChecked />
+              <Switch defaultChecked />
             </div>
 
             <div className="flex items-center justify-between">
@@ -209,7 +209,7 @@ export default async function SettingsPage() {
                   Get notified when new lessons are added to your courses
                 </p>
               </div>
-              <Checkbox defaultChecked />
+              <Switch defaultChecked />
             </div>
 
             <div className="flex items-center justify-between">
@@ -219,7 +219,7 @@ export default async function SettingsPage() {
                   Receive promotional content and course recommendations
                 </p>
               </div>
-              <Checkbox />
+              <Switch />
             </div>
 
             <div className="flex items-center justify-between">
@@ -229,7 +229,7 @@ export default async function SettingsPage() {
                   Get a summary of your learning progress every week
                 </p>
               </div>
-              <Checkbox defaultChecked />
+              <Switch defaultChecked />
             </div>
           </div>
         </CardContent>
@@ -255,7 +255,7 @@ export default async function SettingsPage() {
                   Switch between light and dark themes
                 </p>
               </div>
-              <Checkbox />
+              <Switch />
             </div>
 
             <div className="space-y-2">
@@ -372,7 +372,7 @@ export default async function SettingsPage() {
                   Automatically play the next video in a course
                 </p>
               </div>
-              <Checkbox />
+              <Switch />
             </div>
 
             <div className="flex items-center justify-between">
@@ -382,7 +382,7 @@ export default async function SettingsPage() {
                   Display subtitles by default in video lessons
                 </p>
               </div>
-              <Checkbox defaultChecked />
+              <Switch defaultChecked />
             </div>
           </div>
         </CardContent>
