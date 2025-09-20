@@ -5,7 +5,6 @@ import {
   Home,
   LayoutDashboardIcon,
   LogOutIcon,
-  Settings,
 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -78,16 +77,6 @@ export function UserDropdown({ email, name, image }: iAppProps) {
                 aria-hidden="true"
               />
               <span>Dashboard</span>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/settings">
-              <Settings
-                size={16}
-                className="opacity-60"
-                aria-hidden="true"
-              />
-              <span>Settings</span>
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>

@@ -4,7 +4,6 @@ import {
   IconDashboard,
   IconDotsVertical,
   IconLogout,
-  IconSettings,
 } from "@tabler/icons-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -66,6 +65,9 @@ export function NavUser() {
                     ? session.user.name
                     : session?.user.email.split("@")[0]}
                 </span>
+                <span className="text-muted-foreground truncate text-xs">
+                  jan@gmail.com
+                </span>
               </div>
               <IconDotsVertical className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -98,6 +100,9 @@ export function NavUser() {
                       ? session.user.name
                       : session?.user.email.split("@")[0]}
                   </span>
+                  <span className="text-muted-foreground truncate text-xs">
+                    jan@gmail.com
+                  </span>
                 </div>
               </div>
             </DropdownMenuLabel>
@@ -119,12 +124,6 @@ export function NavUser() {
                 <Link href="/admin/courses">
                   <Tv2 />
                   Courses
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/settings">
-                  <IconSettings />
-                  Settings
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
